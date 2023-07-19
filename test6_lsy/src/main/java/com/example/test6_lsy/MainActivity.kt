@@ -1,9 +1,13 @@
 package com.example.test6_lsy
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.test6_lsy.databinding.ActivityMainBinding
+
 
 //액티비티 : 화면을 그려주는 역할.
 class MainActivity : AppCompatActivity() {
@@ -51,5 +55,23 @@ class MainActivity : AppCompatActivity() {
         binding.btn2.setOnClickListener {
             binding.img1.visibility = View.VISIBLE
         }
+
+        //회원 가입 버튼 클릭시 간단히, 해당 액티비티 화면이동
+        binding.joinBtn.setOnClickListener{
+            // 인텐트 라는 개념에 가장 기초인 화면 전환.
+            // 화면 전환시, 데이터를 가지고 이동도 할 예정.
+            val intent = Intent(this@MainActivity, JoinActivity::class.java)
+            startActivity(intent)
+        }
+
+        //아이디, 패스워드를 입력 받고, 콘솔에 출력, 토스트(알림창) 출력.
+        binding.loginBtn.setOnClickListener {
+            val id : String = binding.idInput.text.toString()
+            val pw : String = binding.pwInput.text.toString()
+            Log.d("lsy","id의 값 : $id, pw의 값 : $pw")
+            Toast.makeText(this@MainActivity,"id의 값 : $id, pw의 값 : $pw",Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this@MainActivity,"test",Toast.LENGTH_SHORT).show()
+        }
+
     }
 }
