@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.k230327_android_lab_pra'
+    namespace 'com.example.test6_lsy'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.k230327_android_lab_pra"
+        applicationId "com.example.test6_lsy"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -30,13 +30,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    //findByViewId 각 뷰 객체별로 하나하나 접근을 한다면.
+    // 뷰 바인딩. 하나의 객체에 뷰 모두를 다 담아서 한곳에서 관리
+    // 뷰 작업이 매우 편해짐.
+    
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
-//외부 API를 가져다 사용 가능.
-    // 리액트 npm 쇼핑
-    // mavenrepository 관련 외부 API 쇼핑.
-    // 안드로이드 , 기본적으로 많은 오픈소스 라이브러리를 가지고 있음. 
+
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.5.0'

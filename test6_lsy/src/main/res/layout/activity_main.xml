@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/childlook"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화번호"
+        android:inputType="phone"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:fontFamily="@font/baemin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="네이버: www.naver.com, 이메일:lsy3709@naver.com, 전화: 7661-3709"
+        android:autoLink="all"
+        android:textSize="30sp"
+    />
+    <Button
+        android:id="@+id/btn1"
+        android:fontFamily="@font/baemin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이미지 on/off"
+        android:textColor="#E91E63"
+        android:textSize="30sp"
+        android:padding="20dp"
+        />
+    <Button
+        android:id="@+id/btn2"
+        android:fontFamily="@font/baemin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이미지 on"
+        android:textColor="#E91E63"
+        android:textSize="30sp"
+        android:padding="20dp"
+        />
+
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="회원가입"
+      android:textColor="#E91E63"
+      android:textSize="30sp"
+      android:padding="20dp"
+      />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textColor="#E91E63"
+        android:textSize="30sp"
+        android:padding="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="텍스트1"
+           android:textSize="15sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="텍스트2"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="텍스트3"
+        android:textSize="15sp"/>
+
+
+</LinearLayout>
