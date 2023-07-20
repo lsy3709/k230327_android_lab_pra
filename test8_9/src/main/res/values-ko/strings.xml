@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">테스트8_9</string>
+    <string name="app_mainTitle">웰컴 투 모바일 프로젝트</string>
+    <string name="app_footCompannyHead">상용컴퍼니</string>
+    <string name="app_footCompannyAddress">부산진구 중앙대로 708 파이낸스 4층</string>
+</resources>

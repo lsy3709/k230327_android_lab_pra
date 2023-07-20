@@ -8,13 +8,32 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.CheckBox
 import android.widget.Toast
+import com.example.test8_9.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     val TAG : String = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
+
+
+        //롱클릭 이벤트 리스너 확인.
+        // 바인딩 작업 샘플 코드, 앞에 모듈에서 가져오기.
+        // 버튼 하나를 가지고 확인.
+        binding.btn1?.setOnLongClickListener {
+            Toast.makeText(this@MainActivity,"버튼 롱클릭 테스트",Toast.LENGTH_SHORT).show()
+            true
+        }
+
+
+
     }
+
+
+
+
 
     //이벤트 핸들러 처리 하는 방법 3가지. 그 중에서 SAM 기법, Single Abstract Method
     // 추상 메서드가 하나 인 인터페이스 -> 바로 람다식으로 사용 가능한 기법.

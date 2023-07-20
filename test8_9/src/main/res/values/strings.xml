@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">test8_9</string>
+    <string name="app_mainTitle">welcome to mobile project</string>
+    <string name="app_footCompannyHead">sangyong company</string>
+    <string name="app_footCompannyAddress">busanjingu jungangdaero 708 finace 4F</string>
 </resources>
