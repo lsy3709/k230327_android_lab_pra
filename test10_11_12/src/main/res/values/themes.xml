@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-<!--    <style name="Base.Theme.K230327_Android_Lab_Pra" parent="Theme.Material3.DayNight.NoActionBar">-->
-    <style name="Base.Theme.K230327_Android_Lab_Pra" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Theme.K230327_Android_Lab_Pra" parent="Theme.Material3.DayNight.NoActionBar">
+<!--    <style name="Base.Theme.K230327_Android_Lab_Pra" parent="Theme.MaterialComponents.DayNight.DarkActionBar">-->
         <!-- Customize your light theme here. -->
 <!--        실제 작업은 노 액션바에서 , 우리가 만든 툴바를 사용할 예정. -->
          <item name="colorPrimary">#869C27B0</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+       <!-- <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>-->
     </style>
 
     <style name="Theme.K230327_Android_Lab_Pra" parent="Base.Theme.K230327_Android_Lab_Pra" />

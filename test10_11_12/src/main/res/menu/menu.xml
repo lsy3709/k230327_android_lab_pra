@@ -6,14 +6,22 @@
         android:id="@+id/menu1"
         android:title="menu1" />
     <item
+        android:id="@+id/menu22"
+        android:title="menu22" />
+    <item
+        android:id="@+id/menu33"
+        android:title="menu33"
+        />
+    <item
         android:id="@+id/menu2"
         android:icon="@android:drawable/ic_menu_add"
         android:title="menu2"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu3"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="menu2"
-        app:showAsAction="ifRoom" />
+        android:title="menu3"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
 </menu>

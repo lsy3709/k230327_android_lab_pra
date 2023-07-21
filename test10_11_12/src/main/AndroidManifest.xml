@@ -15,7 +15,7 @@
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
         <activity
             android:name=".JetActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DetailActivity"
             android:exported="true" />
