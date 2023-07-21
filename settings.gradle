@@ -16,3 +16,4 @@ rootProject.name = "K230327_Android_Lab_Pra"
 include ':app'
 include ':test6_lsy'
 include ':test8_9'
+include ':test10_11_12'
