@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
         <activity
+            android:name=".FragTestActivity"
+            android:exported="true" />
+        <activity
             android:name=".JetActivity"
             android:exported="true" />
         <activity
