@@ -6,25 +6,20 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
-    <!--미디어 서버 접근 시 허가 부분 변경이됨. 일단, 예전꺼 비교해서.-->
-    <!--경로
-    ch16_provider/src/main/AndroidManifest.xml-->
-<!--    세분화된 미디어 권한-->
-<!--    https://developer.android.com/about/versions/13/behavior-changes-13?hl=ko-->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
-    <!--위치의 권한을 요청 정확도까지 세트로 같이 요청. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-
-
-
-
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 미디어 서버 접근 시 허가 부분 변경이됨. 일단, 예전꺼 비교해서. -->
+    <!--
+경로
+    ch16_provider/src/main/AndroidManifest.xml
+    -->
+    <!-- 세분화된 미디어 권한 -->
+    <!-- https://developer.android.com/about/versions/13/behavior-changes-13?hl=ko -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" /> <!-- 위치의 권한을 요청 정확도까지 세트로 같이 요청. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -33,25 +28,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
-
-        <!--콘텐츠 프로바이더 사용하기위해서 사전 작업-->
-        <!-- 1 authorities -> 각자 패키지 명으로 변경.
-        예를들어 , 패키지명 : com.example.test13_16_17_18.test16-->
-        <!--변경 전 : com.example.ch16_provider.fileprovider
-        변경 후 : com.example.test13_16_17_18.test16.fileprovider-->
-
-        <!--2 파일의 경로 위치를 res 에 정의해서 가져와서 사용하기.
+        <activity
+            android:name=".test16multiImg.MainActivity"
+            android:exported="true" />
+        <!-- 콘텐츠 프로바이더 사용하기위해서 사전 작업 -->
+        <!--
+ 1 authorities -> 각자 패키지 명으로 변경.
+        예를들어 , 패키지명 : com.example.test13_16_17_18.test16
+        -->
+        <!--
+변경 전 : com.example.ch16_provider.fileprovider
+        변경 후 : com.example.test13_16_17_18.test16.fileprovider
+        -->
+        <!--
+2 파일의 경로 위치를 res 에 정의해서 가져와서 사용하기.
         @xml/file_paths
         경로 재사용하기.
-        ch16_provider/src/main/res/xml/file_paths.xml-->
-
-        <provider android:name="androidx.core.content.FileProvider"
+        ch16_provider/src/main/res/xml/file_paths.xml
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.test13_16_17_18.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
-            <!--실제 저장소 경로가 필요함-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+            <!-- 실제 저장소 경로가 필요함 -->
         </provider>
 
         <activity

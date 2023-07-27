@@ -38,6 +38,8 @@ android {
 
 dependencies {
 
+    // glide 설치 후, 반드시 창에 sync now 클릭하기.
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -45,4 +47,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 }
