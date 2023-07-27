@@ -29,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
         <activity
+            android:name=".test17crud.MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".test17.AddActivity"
             android:exported="false" />
         <activity

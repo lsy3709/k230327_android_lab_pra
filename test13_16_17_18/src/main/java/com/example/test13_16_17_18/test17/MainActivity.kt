@@ -34,6 +34,8 @@ import com.example.test13_16_17_18.databinding.ActivityMainBinding
 // 액션바를 붙여주세요. 테마에서 설정 변경함.
 
 //3 crud 블로그에 샘플소스 살펴보기.
+//https://github.com/lsy3709/K230201AndroidLab/tree/master/test17-crud
+
 //4 제트팩 라이브러리에서, 구글에서 공식적으로 SQLite 보다, room 사용을 권장.
 //5 샘플코드 소개 정도만 하겠음.
 
