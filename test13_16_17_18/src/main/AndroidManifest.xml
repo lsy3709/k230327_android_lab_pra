@@ -29,9 +29,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
         <activity
+            android:name=".test17.AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".test16multiImg.MainActivity"
-            android:exported="true" />
-        <!-- 콘텐츠 프로바이더 사용하기위해서 사전 작업 -->
+            android:exported="true" /> <!-- 콘텐츠 프로바이더 사용하기위해서 사전 작업 -->
         <!--
  1 authorities -> 각자 패키지 명으로 변경.
         예를들어 , 패키지명 : com.example.test13_16_17_18.test16
@@ -85,10 +87,10 @@
             android:exported="false" />
         <activity
             android:name=".test18.MainActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".test17.MainActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".test16.MainActivity"
             android:exported="true" />
