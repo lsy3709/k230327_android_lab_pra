@@ -69,6 +69,7 @@ class ImageActivity : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult())
         {
             try {
+                //갤러리에서 선택된 이미지를 받아서, 처리 합니다.
                 Log.d("kkang", "응답은 받음. ")
                 val calRatio = calculateInSampleSize(
                     it.data!!.data!!,
@@ -78,14 +79,23 @@ class ImageActivity : AppCompatActivity() {
                 Log.d("kkang","원본의 사진을 얼마나 줄일 지 비율값(calRatio):$calRatio  ")
                 val option = BitmapFactory.Options()
                 option.inSampleSize = calRatio
+                // Glide 라는 라이브러리 이미지 처리를 더 많이 할 예정.
+
 
                 Log.d("kkang", "inputStream 하기전")
+                // 파일 입력 출력. 아래 코드.
+                // 사진을 바이트 단위로 읽었음. inputStream : 이미지의 바이트 단위의 결과값
                 var inputStream = contentResolver.openInputStream(it.data!!.data!!)
                 Log.d("kkang", "inputStream 하기후")
+                //decodeStream : 바이트로 읽어서 실제 이미지의 타입으로 변환. 단위 bitmap로 변환.
+                // bitmap 안드로이드 사용하는 이미지 단위이고, 보통, 네트워크, 파일 io 할 때 자주 이용됨.
                 val bitmap = BitmapFactory.decodeStream(inputStream, null, option)
                 inputStream!!.close()
                 inputStream = null
-
+                //사진 -> 바이트 읽어서 -> inputStream -> decodeStream -> bitmap -> 뷰에 출력.
+                // 이미지 , 영상 관련 인코딩 관심 있으면,
+                // 작업 한 깃 주소 :
+                //https://github.com/lsy3709/travel_sample_app_spring_firebase/tree/master/app/src/main/java/com/android4/travel/Memo
                 bitmap?.let {
                     Log.d("kkang", "결과 뷰에 적용 전")
                     // 결과 뷰에 갤러리에서 가져온 사진을 할당 부분.
@@ -150,6 +160,7 @@ class ImageActivity : AppCompatActivity() {
                 SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
             // 안드로이드 시스템에서 정하는 DIRECTORY_PICTURES 정해져 있음.
             val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            Log.d("lsy", "storageDir(Environment.DIRECTORY_PICTURES)의 위치: $storageDir")
             // JPEG_${timeStamp}_.jpg 파일 준비. 물리 파일 생성.
             val file = File.createTempFile(
                 "JPEG_${timeStamp}_",
@@ -158,6 +169,7 @@ class ImageActivity : AppCompatActivity() {
             )
             // 물리 파일의 실제 경로
             filePath = file.absolutePath
+            Log.d("lsy","filePath 의경로 : $filePath")
             // 카메라에서 찍은 사진에 접근 하기위해서, 콘텐츠 프로바이더에 요청.
             // 요청시, 매니페스트에서 정한 같은 문자열을 사용합니다.
             // "com.example.test13_16_17_18.fileprovider",

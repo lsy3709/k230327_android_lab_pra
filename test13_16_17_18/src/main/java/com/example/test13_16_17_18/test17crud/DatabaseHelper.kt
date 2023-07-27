@@ -18,7 +18,7 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper
     (context, DATABASE_NAME, null, 1) {
     // 1번째 매개변수 context -> this 현재 호출이 된 액티비티를 의미.
     // 2번째 매개변수 데이터베이스 파일명 ->
-    // 예) DATABASE_NAME, 클래스 변수로 선언해서 상수로 사용중
+    // 예) DATABASE_NAME, 클래스 변수로 선언해서 상수로 사용중 :STUDENT.db
     // 4번째 매개변수 , 현재 사용하는 버전을 의미하고,
     // 이버전이 변경이 된다면, 아래에 있는 onUpgrade 함수 재 호출됨.
     override fun onCreate(db: SQLiteDatabase) {

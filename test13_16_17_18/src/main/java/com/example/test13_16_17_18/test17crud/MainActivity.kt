@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     // 전역으로 선언만 했지, 할당을 안했음.
     // 그래서, onCreate 라는 함수에서 , 최초 1회 실행시.
     // 할당을 하는 구조.
+    // 마치, DAO, Repository, Mybatis Mapper, JPA 엔티티클래스와 서비스(쿼리스트링) 비슷함.
     var myDB: DatabaseHelper? = null
 
     lateinit var binding: ActivityMain6Binding
@@ -135,6 +136,8 @@ class MainActivity : AppCompatActivity() {
     fun UpdateData() {
         buttonUpdate!!.setOnClickListener {
             val isUpdated = myDB!!.updateData(
+                // 하나의 입력창을 만들어서 해당 아이디를 사용.
+                // 기존의 입력창과 수정창을 같이 재사용중.
                 editTextID!!.text.toString(),
                 editTextName!!.text.toString(),
                 editTextPhone!!.text.toString(),

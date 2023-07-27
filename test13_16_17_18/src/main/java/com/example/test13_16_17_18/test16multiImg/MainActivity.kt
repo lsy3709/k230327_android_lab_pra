@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         val requestGalleryLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult())
         {
+            // 선택된 이미지를 리스트에 담기전에, 먼저 list 컬렉션 비우기.
             list.clear()
             if(it.data?.clipData != null){
                 val count = it.data!!.clipData?.itemCount
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 for (i in 0 until count!!){
                     val imageUri = it.data!!.clipData?.getItemAt(i)?.uri
+                    Log.d("lsy","선택된 이미지의 내부 갤러리 공용 저장소의 위치 : $imageUri")
                     if (imageUri != null) {
                         list.add(imageUri)
                     }
