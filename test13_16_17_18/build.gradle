@@ -37,6 +37,11 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+// json 변환하기 위한 또라이브러리, gson 예시.
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     // glide 설치 후, 반드시 창에 sync now 클릭하기.
     implementation 'com.github.bumptech.glide:glide:4.12.0'

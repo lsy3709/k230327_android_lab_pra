@@ -7,6 +7,8 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 미디어 서버 접근 시 허가 부분 변경이됨. 일단, 예전꺼 비교해서. -->
     <!--
 경로
@@ -22,12 +24,19 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".test18reqres.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra">
+        <activity
+            android:name=".test18reqres.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".test18.MainActivity581"
+            android:exported="true" />
         <activity
             android:name=".test17sharedpreference.DetailActivity"
             android:exported="true" />
