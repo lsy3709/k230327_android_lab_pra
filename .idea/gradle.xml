@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/googlemaptest" />
             <option value="$PROJECT_DIR$/test10_11_12" />
             <option value="$PROJECT_DIR$/test13_16_17_18" />
             <option value="$PROJECT_DIR$/test6_lsy" />

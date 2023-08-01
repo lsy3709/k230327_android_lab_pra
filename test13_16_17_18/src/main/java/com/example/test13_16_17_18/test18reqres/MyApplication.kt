@@ -19,6 +19,10 @@ class MyApplication : Application() {
     // 선언만
     var networkService: INetworkService
 
+    // retrofit 사용하기 위한 객체.
+    // 백엔드 서버의 주소 설정.
+    // 데이터를 전달 받을시 , 중간데이터(json) 변환해주기. 객체의 직렬화 , 역 직렬화
+    // 자동으로 구현해주는 라이브러리 등록 설정. ex)Gson 이 부분 부품 교체처럼 교체 가능.
     val retrofit: Retrofit
         get() = Retrofit.Builder()
             .baseUrl("https://reqres.in/")

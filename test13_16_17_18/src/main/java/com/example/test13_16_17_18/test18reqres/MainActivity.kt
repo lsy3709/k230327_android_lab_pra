@@ -17,6 +17,7 @@ import retrofit2.Response
 // 3)받아오는 데이터 모델링
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMain9Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,12 +25,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //test , MyApplication에서 만든 형으로 다운캐스팅해서, 해당 객체 생성.
+        // MyApplication 에 포함된 networkService 를통해서 , 서비스로 호출
+        // MainActivity-> MyApplication -> INetworkService
         val networkService = (applicationContext as MyApplication).networkService
 
         // INetworkService에 정의된 추상 함수이고, MyApplication 클래스에 붙였다.
         // 예  doGetUserList(2)
         // 여기에 함수의 형식이 계속 변경이 됩니다.
-        val userListCall = networkService.doGetUserList(2)
+        // userListCall 의 타입은 Call<UserListModel>
+        val userListCall = networkService.doGetUserList("2")
 
 
 
@@ -38,16 +42,22 @@ class MainActivity : AppCompatActivity() {
             // 해당 애너테이션 정의 부분 사용해보기 예제2) @GET("users/list?sort=desc")
 //            val test1 = networkService.test1()
             // 테스트 중.
-            val test1 = networkService.doGetUserList(2)
+            // test1 의 타입은 Call<UserListModel>
+            val test1 = networkService.doGetUserList("2")
             // fun doGetUserList(@Query("page") page: String): Call<UserListModel>
 
 
+            // 실제 네트워크 통신의 시작 부분. test1.enqueue 함수를 호출하는 순간.
             test1.enqueue(object: Callback<UserListModel> {
-                override fun onResponse(call: Call<UserListModel>, response: Response<UserListModel>) {
+                // 성공 호출
+                // onResponse 의 매개변수 정의 부분의 구조를 파악.
+                override fun onResponse(call: Call<UserListModel>,
+                                        response: Response<UserListModel>) {
+                    // 결국, response 응답 객체에 우리가 원하는 데이터의 객체이 넘어온다.
                     val userModelSample = response.body()
                     Log.d("lsy","test1()호출예제2이고 값조회: ${userModelSample}")
                 }
-
+                // 실패 호출
                 override fun onFailure(call: Call<UserListModel>, t: Throwable) {
                     TODO("Not yet implemented")
                 }

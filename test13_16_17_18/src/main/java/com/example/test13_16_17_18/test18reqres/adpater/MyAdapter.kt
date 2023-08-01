@@ -15,6 +15,8 @@ import retrofit2.Response
 
 class MyViewHolder(val binding: ItemRetrofitBinding): RecyclerView.ViewHolder(binding.root)
 
+// 메인 액티비티 3번에서, MyAdapter 클래스 매개변수2개인 초기화 생성자 호출.
+// 서버에서 받은 데이터를 val datas: List<UserModel>?
 class MyAdapter(val context: Context, val datas: List<UserModel>?): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun getItemCount(): Int{
@@ -36,11 +38,15 @@ class MyAdapter(val context: Context, val datas: List<UserModel>?): RecyclerView
 
 
         user?.avatar?.let {
+            // 네트워크 통신을 이용해서, 이미지를 가져오는 작업.
             val avatarImageCall = (context.applicationContext as MyApplication).networkService.getAvatarImage(it)
+            // 실제 통신이 시작.
             avatarImageCall.enqueue(object : Callback<ResponseBody> {
+                // 성공하면.
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.isSuccessful) {
                         if (response.body() != null) {
+                            // 데이터를 받아서, 앱에서 사용 가능한 이미지 타입으로 변환해서 사용함.
                             val bitmap = BitmapFactory.decodeStream(response.body()!!.byteStream())
                             binding.avatarView.setImageBitmap(bitmap)
                         }
