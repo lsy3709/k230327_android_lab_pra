@@ -6,6 +6,11 @@
     <!--33 버전이후로는 세분화된 권한이라고 해서, 따로 추가로 설정-->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 
+    <!--메뉴 부분이 액션바에 있기 때문에, 테마 설정에서, 액션바가 있는 부분 사용하되. 호환성 문제가 간혹 발생하니
+    주의해서, 사용하기.-->
+    <!--android:name=".MyApplication"
+    앱이 실행되는 시점에서, 자주 사용하는 파이어베이스 관련 객체, 인증, 스토어, 스토리지를 미리 메모리상에
+    올려두고 사용하는 방법.-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K230327_Android_Lab_Pra"
         android:name=".MyApplication">
+        <!--클라우드 메세지 (FCM: Firebase Cloud Message) , 알림 기능 구현 할 때 사용할 예정. -->
+        <!--데이팅 앱에서, 서로 매칭이 되면, 알림 보내는 기능 하나만 가져와서 소개 할 까함. -->
         <meta-data
             android:name="com.google.firebase.message.default_notification_icon"
             android:resource="@drawable/ic_stat_ic_notification"/>
@@ -23,6 +30,11 @@
         <meta-data
             android:name="com.google.firebase.message.default_notification_channel_id"
             android:value="fcm_default_channel"/>
+        <!--백그라운드에서 실행되는 컴포넌트 이고, 앱이 시작하고 있을 때를 포그라운드, 앱이 잠시 뒤에 있을 때,
+        백그라운드 상황이라고, FCM , 앱이 백그라운드 상황에서도 알림을 받는 로직이 필요한데, 이것 처리하는 부분이
+        서비스 임. -->
+        <!--기본 구성, 1채널, 2토큰, 3메세지(데이터) 구성해서,
+        FCM 서버를 이용해서, 상대방에게 메세지를 전달하는 기능 구현함. -->
         <service
             android:name=".MyFirebaseMessageService"
             android:enabled="true"
@@ -34,6 +46,8 @@
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
+        <!--android:windowSoftInputMode="adjustResize"/> 입력창의 소프트 키보드를 사용시, 화면이
+        잘리는 현상을, 사이즈 조절.-->
         <activity
             android:name=".AddActivity"
             android:exported="false"
